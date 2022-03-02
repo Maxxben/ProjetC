@@ -1,3 +1,9 @@
+/* 
+ * File:   manager.c
+ * Author: Maxxben
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -73,6 +79,11 @@ void *threadProcess(void *ptr) {
 
 }
 
+
+/**
+ * Create a new socket server
+ * @param cfg cfgServer 
+ */
 int create_server_socket(cfgServer cfg) {
     int sockfd = -1;
     struct sockaddr_in address;
@@ -84,13 +95,7 @@ int create_server_socket(cfgServer cfg) {
         return -3;
     }
 
-
-    /* bind socket to port */
     address.sin_family = AF_INET;
-    //bind to all ip : 
-    //address.sin_addr.s_addr = INADDR_ANY;
-    //ou 0.0.0.0 
-    //Sinon  127.0.0.1
     address.sin_addr.s_addr = inet_addr(cfg.server_IP);
     address.sin_port = htons(cfg.server_Port);
 

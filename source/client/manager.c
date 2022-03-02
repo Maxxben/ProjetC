@@ -1,3 +1,9 @@
+/* 
+ * File:   manager.c
+ * Author: Maxxben
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,6 +23,10 @@ void *threadProcess(void * ptr) {
     close(sockfd);
 }
 
+/**
+ * Open connection
+ * @param cfg cfgServer 
+ */
 int open_connection(cfgClient cfg) {
     int sockfd;
 

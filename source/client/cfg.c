@@ -1,3 +1,9 @@
+/* 
+ * File:   cfg.c
+ * Author: Maxxben
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <libconfig.h>
@@ -5,12 +11,13 @@
 #include "../common/cfg.h"
 
 /**
-* @brief Initialisation config client
+* @brief Initialisation de la config du client
 */
 cfgClient initCfgCli(){
   config_t cfg;
   config_init(&cfg);
 
+  //Si erreur dans le fichier de config
   if(! config_read_file(&cfg, "config/client.cfg")){
     fprintf(stderr, "%s:%d - %s\n", config_error_file(&cfg),config_error_line(&cfg), config_error_text(&cfg));
     config_destroy(&cfg);
@@ -32,6 +39,6 @@ cfgClient initCfgCli(){
   return cfgClient;
 }
 
-void afficheConfigCli(cfgClient cfg){
-  printf("\n Config du client \n \nIP du serveur : %s \nPort du serveur : %d \nID du client : %d\n", cfg.server_IP, cfg.server_Port, cfg.id_Client);
+void afficherConfigCli(cfgClient cfg){
+  printf("\n--- Config du client ---\n \nIP du serveur : %s \nPort du serveur : %d \nID du client : %d\n", cfg.server_IP, cfg.server_Port, cfg.id_Client);
 }

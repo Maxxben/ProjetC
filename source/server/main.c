@@ -1,3 +1,9 @@
+/* 
+ * File:   main.c
+ * Author: Maxxben
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,7 +30,7 @@ int main(int argc, char** argv) {
     sockfd = create_server_socket(cfg);
 
     if (listen(sockfd, 50) < 0) {
-        fprintf(stderr, "%s: error: cannot listen on port\n", argv[0]);
+        fprintf(stderr, "%s: erreur : impossible d'écouter sur le port\n", argv[0]);
         return -5;
     }
     /* listen on port , stack size 50 for incoming connections*/

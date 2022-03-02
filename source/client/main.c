@@ -1,3 +1,9 @@
+/* 
+ * File:   main.c
+ * Author: Maxxben
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
