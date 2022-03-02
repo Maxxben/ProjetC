@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <libconfig.h>
 #include <string.h>
-#include "cfg.h"
+#include "../common/cfg.h"
 
 /**
 * @brief Initialisation config client
 */
-cfgClient initCfg(){
+cfgClient initCfgCli(){
   config_t cfg;
   config_init(&cfg);
 

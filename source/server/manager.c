@@ -6,8 +6,8 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <stdbool.h>
-#include "srvcxnmanager.h"
-#include "conf_serveur/confServeur.h"
+#include "manager.h"
+#include "../common/cfg.h"
 
 connection_t* connections[MAXSIMULTANEOUSCLIENTS];
 
@@ -50,26 +50,19 @@ pthread_mutex_unlock(&lock);
  * @return 
  */
 void *threadProcess(void *ptr) {
-    char buffer_in[BUFFERSIZE];
-    char buffer_out[BUFFERSIZE];
-    ConfigClient client;
 
     int len;
     connection_t *connection;
+    cfgClient cfgCli;
 
     if (!ptr) pthread_exit(0);
     connection = (connection_t *) ptr;
     printf("New incoming connection \n");
     add(connection);
     while(true){
-        for (int i = 0; i < MAXSIMULTANEOUSCLIENTS; ++i) {
-            if (connections[i]!= NULL){
-                read(connections[i],&client,sizeof(ConfigClient));
-            }
-        }
-        if (client.identifiant == client.identifiant){
-
-        }
+        read(connection->sockfd, &cfgCli, sizeof(cfgCli));
+        printf("Hello from %d\n", cfgCli.id_Client);
+        break;
     }
 
     printf("Connection to client %i ended \n", connection->index);
@@ -80,10 +73,9 @@ void *threadProcess(void *ptr) {
 
 }
 
-int create_server_socket() {
+int create_server_socket(cfgServer cfg) {
     int sockfd = -1;
     struct sockaddr_in address;
-    int port = 7799;
 
     /* create socket */
     sockfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -99,8 +91,8 @@ int create_server_socket() {
     //address.sin_addr.s_addr = INADDR_ANY;
     //ou 0.0.0.0 
     //Sinon  127.0.0.1
-    address.sin_addr.s_addr = inet_addr("0.0.0.0");
-    address.sin_port = htons(port);
+    address.sin_addr.s_addr = inet_addr(cfg.server_IP);
+    address.sin_port = htons(cfg.server_Port);
 
     /* prevent the 60 secs timeout */
     int reuse = 1;
@@ -108,7 +100,7 @@ int create_server_socket() {
 
     /* bind */
     if (bind(sockfd, (struct sockaddr *) &address, sizeof (struct sockaddr_in)) < 0) {
-        fprintf(stderr, "error: cannot bind socket to port %d\n", port);
+        fprintf(stderr, "error: cannot bind socket to port %d\n", cfg.server_Port);
         return -4;
     }
 

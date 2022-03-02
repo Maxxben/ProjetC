@@ -4,11 +4,10 @@ SRC_CLIENT = ./source/client/*.c
 OBJ_CLIENT = $(SRC_CLIENT:.cc=.o)
 EXEC_CLIENT = ./exec/client
 
-SRC_SERVER = ./src/server/*.c
+SRC_SERVER = ./source/server/*.c
 OBJ_SERVER = $(SRC_SERVER:.cc=.o)
 EXEC_SERVER = ./exec/server
 
-CFLAGS = -g `pkg-config --cflags`
 LFLAGS = -lconfig -pthread -rdynamic
 
 

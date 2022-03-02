@@ -6,16 +6,20 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <stdbool.h>
-#include "cfg.h"
+#include "../common/cfg.h"
+#include "manager.h"
 
 int main(int argc, char** argv) {
 
-    cfgClient cfg = initCfg();
+    cfgClient cfgCli = initCfgCli();
+    showcfgClient(cfgCli);
+
     int sockfd;
     pthread_t thread;
-    sockfd = open_connection();
+    sockfd = open_connection(cfgCli);
 
-    write(sockfd, &cfg, sizeof(cfg));
+    write(sockfd, &cfgCli, sizeof(cfgCli));
+    
 
     //Creation d'un pthread de lecture
     pthread_create(&thread, 0, threadProcess, &sockfd);

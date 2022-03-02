@@ -6,7 +6,8 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <stdbool.h>
-#include "source/srvcxnmanager.h"
+#include "manager.h"
+#include "../common/cfg.h"
 
 int main(int argc, char** argv) {
     int sockfd = -1;
@@ -14,11 +15,13 @@ int main(int argc, char** argv) {
     connection_t *connection;
     pthread_t thread;
 
+    cfgServer cfg = initCfgSrv();
+    showServerConfig(cfg);
 
     /* init array*/
     init_sockets_array();
     /* create socket */
-    sockfd = create_server_socket();
+    sockfd = create_server_socket(cfg);
 
     if (listen(sockfd, 50) < 0) {
         fprintf(stderr, "%s: error: cannot listen on port\n", argv[0]);
