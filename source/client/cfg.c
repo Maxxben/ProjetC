@@ -25,9 +25,9 @@ cfgClient initCfg(){
   config_lookup_int(&cfg, "id_Client", &id_Client);
 
   cfgClient cfgClient;
-  strcpy(cfgClient.serverIP, server_IP);
-  cfgClient.serverPort = server_Port;
-  cfgClient.idClient = id_Client;
+  strcpy(cfgClient.server_IP, server_IP);
+  cfgClient.server_Port = server_Port;
+  cfgClient.id_Client = id_Client;
 
   return cfgClient;
 }

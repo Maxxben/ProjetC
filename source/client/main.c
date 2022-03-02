@@ -15,19 +15,13 @@ int main(int argc, char** argv) {
     pthread_t thread;
     sockfd = open_connection();
 
-    write(sockfd, &jeu1, sizeof(jeu1));
+    write(sockfd, &cfg, sizeof(cfg));
 
     //Creation d'un pthread de lecture
     pthread_create(&thread, 0, threadProcess, &sockfd);
 
     //write(connection->sock,"Main APP Still running",15);
     pthread_detach(thread);
-    do {
-        fgets(msg, 100, stdin);
-        //printf("sending : %s\n", msg);
-        status = write(sockfd,&jeu1,sizeof(jeu));
-        //memset(msg,'\0',100);
-    } while (status != -1);
 
     return (EXIT_SUCCESS);
 }
