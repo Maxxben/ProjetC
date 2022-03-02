@@ -33,5 +33,5 @@ cfgClient initCfg(){
 }
 
 void showcfgClient(cfgClient cfg){
-    printf("\n--------------------------\n CLIENT CONFIGURATION\n \n - Server IP Address: %s \n - Server Port: %d \n - Client ID: %d\n--------------------------\n", cfg.server_IP, cfg.server_Port, cfg.id_Client);
+  printf("\n--- CONFIGURATION DU CLIENT ---\n \nIP du serveur : %s \nPort du serveur : %d \nID du client : %d\n", cfg.server_IP, cfg.server_Port, cfg.id_Client);
 }

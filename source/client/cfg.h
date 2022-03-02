@@ -1,3 +1,8 @@
+/*
+* 
+*
+*/
+
 #ifndef CFG_H
 #define CFG_H
 
@@ -7,7 +12,9 @@ typedef struct {
     int id_Client;
 } cfgClient;
 
+
 cfgClient initCfg();
+void showcfgClient(cfgClient cfg);
 
 
 #endif /* CFG.H */
