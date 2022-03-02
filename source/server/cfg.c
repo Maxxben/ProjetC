@@ -27,7 +27,7 @@ cfgServer initCfgSrv()
 }
  
 
-void showServerConfig(cfgServer cfg)
+void afficheConfigSrv(cfgServer cfg)
 {
-    printf("\n--------------------------\n SERVER CONFIGURATION\n \n - IP Address: %s \n\033[1;37m - Port: %d \n--------------------------\n", cfg.server_IP, cfg.server_Port);
+    printf("\nConfig du serveur :\n IP du serveur : %s \nPort du serveur : %d\n", cfg.server_IP, cfg.server_Port);
 }

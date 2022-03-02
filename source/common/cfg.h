@@ -18,7 +18,7 @@ typedef struct {
 cfgClient initCfgCli();
 cfgServer initCfgSrv();
 
-void showcfgClient(cfgClient cfg);
-void showServerConfig(cfgServer cfg);
+void affciherConfigCli(cfgClient cfg);
+void affciherConfigSrv(cfgServer cfg);
 
 #endif /* CFG.H */

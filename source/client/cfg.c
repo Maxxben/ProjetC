@@ -32,6 +32,6 @@ cfgClient initCfgCli(){
   return cfgClient;
 }
 
-void showcfgClient(cfgClient cfg){
-  printf("\n--- CONFIGURATION DU CLIENT ---\n \nIP du serveur : %s \nPort du serveur : %d \nID du client : %d\n", cfg.server_IP, cfg.server_Port, cfg.id_Client);
+void afficheConfigCli(cfgClient cfg){
+  printf("\n Config du client \n \nIP du serveur : %s \nPort du serveur : %d \nID du client : %d\n", cfg.server_IP, cfg.server_Port, cfg.id_Client);
 }
