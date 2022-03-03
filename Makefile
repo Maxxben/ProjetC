@@ -13,23 +13,23 @@ LFLAGS = -lconfig -pthread -rdynamic
 
 client:
 	@$(CXX) $(OBJ_CLIENT) $(CFLAGS) $(LFLAGS) -o $(EXEC_CLIENT)
-	@echo "Generation executable client"
+	@echo "-- Generation executable client --"
 
 server:
 	@$(CXX) $(OBJ_SERVER) $(CFLAGS) $(LFLAGS) -o $(EXEC_SERVER) 
-	@echo "Generation executable serveur"
+	@echo "-- Generation executable serveur --"
 
 all:
 	@$(CXX) $(OBJ_CLIENT) $(CFLAGS) $(LFLAGS) -o $(EXEC_CLIENT)
 	@$(CXX) $(OBJ_SERVER) $(CFLAGS) $(LFLAGS) -o $(EXEC_SERVER)
-	@echo "Generation des executables"
+	@echo "-- Generation des executables --"
 
 .PHONY: clean
 clean:
 	@rm -rf $(EXEC_CLIENT) $(EXEC_SERVER)
-	@echo "Suppression des executables"
+	@echo "-- Suppression des executables --"
 
 .PHONY: doc
 doc:
 	doxygen
-	@echo "Generation de la documentation Doxygen"
+	@echo "-- Generation de la documentation Doxygen --"
