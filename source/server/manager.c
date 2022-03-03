@@ -70,8 +70,7 @@ void *threadProcess(void *ptr) {
     connection = (connection_t *) ptr;
     printf("New incoming connection \n");
     add(connection);
-    while(true){ 
-        read(connection->sockfd, &cfgCli, sizeof(cfgCli)); //read(socket, data, taille)
+    while((len = read(connection->sockfd, &cfgCli, sizeof(cfgCli)) > 0 ){ //read(socket, data, taille)
 
         printf("Hello from %d\n", cfgCli.id_Client);
 
