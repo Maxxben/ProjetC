@@ -39,6 +39,10 @@ cfgClient initCfgCli(){
   return cfgClient;
 }
 
+/**
+* @brief Affichage de la config du client
+* @param cfg strcture config serveur
+*/
 void afficherConfigCli(cfgClient cfg){
   printf("\n--- Config du client ---\n \nIP du serveur : %s \nPort du serveur : %d \nID du client : %d\n", cfg.server_IP, cfg.server_Port, cfg.id_Client);
 }

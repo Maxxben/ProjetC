@@ -44,14 +44,9 @@ void del(connection_t *connection) {
     perror("Connection not in pool ");
     exit(-5);
 }
-/*
-pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
-pthread_mutex_lock(&lock);
-pthread_mutex_unlock(&lock);
- */
 
 /**
- * Thread allowing server to handle multiple client connections
+ * @brief Thread allowing server to handle multiple client connections
  * @param ptr connection_t 
  * @return 
  */
@@ -66,7 +61,7 @@ void *threadProcess(void *ptr) {
     printf("New incoming connection \n");
     add(connection);
     while(true){
-        read(connection->sockfd, &cfgCli, sizeof(cfgCli));
+        read(connection->sockfd, &cfgCli, sizeof(cfgCli)); //read(socket, data, taille)
         printf("Hello from %d\n", cfgCli.id_Client);
         break;
     }
@@ -81,8 +76,8 @@ void *threadProcess(void *ptr) {
 
 
 /**
- * Create a new socket server
- * @param cfg cfgServer 
+ * @brief Creer un nouveau socket serveur
+ * @param cfg 
  */
 int create_server_socket(cfgServer cfg) {
     int sockfd = -1;

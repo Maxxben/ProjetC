@@ -2,6 +2,14 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 
+/**
+* @brief Structure du socket
+*
+* @param sockfd
+* @param address structure sockaddr
+* @param addr_len
+* @param index
+*/
 typedef struct {
     int sockfd;
     struct sockaddr address;

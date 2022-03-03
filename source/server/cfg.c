@@ -36,8 +36,11 @@ cfgServer initCfgSrv()
  
   return cfgServer;
 }
- 
 
+/**
+* @brief Affichage de la config du serveur
+* @param cfg strcture config serveur
+*/
 void afficherConfigSrv(cfgServer cfg)
 {
     printf("\n--- Config du serveur : ---\n IP du serveur : %s \nPort du serveur : %d\n", cfg.server_IP, cfg.server_Port);

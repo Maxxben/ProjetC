@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
     pthread_t thread;
 
     cfgServer cfg = initCfgSrv();
-    showServerConfig(cfg);
+    afficherConfigSrv(cfg);
 
     /* init array*/
     init_sockets_array();

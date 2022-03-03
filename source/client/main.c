@@ -18,7 +18,7 @@
 int main(int argc, char** argv) {
 
     cfgClient cfgCli = initCfgCli();
-    showcfgClient(cfgCli);
+    afficherConfigCli(cfgCli);
 
     int sockfd;
     pthread_t thread;
@@ -26,7 +26,6 @@ int main(int argc, char** argv) {
 
     write(sockfd, &cfgCli, sizeof(cfgCli));
     
-
     //Creation d'un pthread de lecture
     pthread_create(&thread, 0, threadProcess, &sockfd);
 

@@ -19,7 +19,7 @@ typedef struct {
 *
 * @param server_IP
 * @param server_Port
-* @param id_Client 
+* @param id_Client
 */
 typedef struct {
     char server_IP[15];

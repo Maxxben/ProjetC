@@ -24,8 +24,8 @@ void *threadProcess(void * ptr) {
 }
 
 /**
- * Open connection
- * @param cfg cfgServer 
+ * @brief Permet d'instancier une connexion au serveur
+ * @param cfg 
  */
 int open_connection(cfgClient cfg) {
     int sockfd;
