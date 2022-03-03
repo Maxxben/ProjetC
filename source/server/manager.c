@@ -13,7 +13,6 @@
 #include <arpa/inet.h>
 #include <stdbool.h>
 #include "manager.h"
-#include "partie.c"
 #include "../common/cfg.h"
 
 connection_t* connections[MAXSIMULTANEOUSCLIENTS];
