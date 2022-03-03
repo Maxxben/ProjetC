@@ -11,6 +11,10 @@
 typedef struct {
     char *server_IP;
     int server_Port;
+    char *room_name;
+    int room_start_balance;
+    int room_client_1;
+    int room_client_2;
 } cfgServer;
 
 

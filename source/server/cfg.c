@@ -27,12 +27,25 @@ cfgServer initCfgSrv()
  
   const char *server_IP;
   int server_Port = 0;
+  const char *room_name;
+  int room_start_balance = 0;
+  int room_client_1 = 0;
+  int room_client_2 = 0;
+
   config_lookup_string(&cfg, "server_IP", &server_IP);
   config_lookup_int(&cfg, "server_Port", &server_Port);
- 
+  config_lookup_string(&cfg, "room_name", &room_name);
+  config_lookup_int(&cfg, "room_start_balance", &room_start_balance);
+  config_lookup_int(&cfg, "room_client_1", &room_client_1);
+  config_lookup_int(&cfg, "room_client_2", &room_client_2);
+
   cfgServer cfgServer;
   cfgServer.server_IP = server_IP;
   cfgServer.server_Port = server_Port;
+  cfgServer.room_name = room_name;
+  cfgServer.room_start_balance = room_start_balance;
+  cfgServer.room_client_1 = room_client_1;
+  cfgServer.room_client_2 = room_client_2;
  
   return cfgServer;
 }
@@ -43,5 +56,5 @@ cfgServer initCfgSrv()
 */
 void afficherConfigSrv(cfgServer cfg)
 {
-    printf("\n--- Config du serveur : ---\n IP du serveur : %s \nPort du serveur : %d\n", cfg.server_IP, cfg.server_Port);
+    printf("\n--- Config du serveur : ---\nIP du serveur : %s \nPort du serveur : %d\nNom de la partie : %s\nBank de depart : %d\nNom client 1 : %s\nNom client 2 : %s\n", cfg.server_IP, cfg.server_Port, cfg.room_name, cfg.room_start_balance, cfg.room_client_1, cfg.room_client_2);
 }

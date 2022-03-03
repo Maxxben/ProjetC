@@ -23,6 +23,7 @@ int main(int argc, char** argv) {
 
     cfgServer cfg = initCfgSrv();
     afficherConfigSrv(cfg);
+    setCfgServer(cfg);
 
     /* init array*/
     init_sockets_array();

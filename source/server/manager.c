@@ -13,9 +13,12 @@
 #include <arpa/inet.h>
 #include <stdbool.h>
 #include "manager.h"
+#include "partie.c"
 #include "../common/cfg.h"
 
 connection_t* connections[MAXSIMULTANEOUSCLIENTS];
+
+cfgServer cfgSrv;
 
 void init_sockets_array() {
     for (int i = 0; i < MAXSIMULTANEOUSCLIENTS; i++) {
@@ -46,6 +49,14 @@ void del(connection_t *connection) {
 }
 
 /**
+ * @brief Hydratation de la variable globale du fichier
+ * @param cfg configuration hydratée venant du main
+ */
+void setCfgServer(cfgServer cfg){
+    cfgSrv = cfg;
+}
+
+/**
  * @brief Thread allowing server to handle multiple client connections
  * @param ptr connection_t 
  * @return 
@@ -63,6 +74,16 @@ void *threadProcess(void *ptr) {
     while(true){
         read(connection->sockfd, &cfgCli, sizeof(cfgCli)); //read(socket, data, taille)
         printf("Hello from %d\n", cfgCli.id_Client);
+
+        if(cfgCli.id_Client == cfgSrv.room_client_1 || cfgCli.id_Client == cfgSrv.room_client_2)
+        {
+            printf("Le client %d est connecté a la room %s\n", cfgCli.id_Client, cfgSrv.room_name);
+        }
+        else
+        {
+            printf("Le client %d est n'appartient pas a la room\n", cfgCli.id_Client);
+        }
+
         break;
     }
 

@@ -22,5 +22,6 @@ void add(connection_t *connection);
 void del(connection_t *connection);
 void *threadProcess(void *ptr);
 int create_server_socket(cfgServer cfg);
+void setCfgServer(cfgServer cfg);
 
 #endif /* MANAGER_H */
