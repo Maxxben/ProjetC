@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
     }
     /* listen on port , stack size 50 for incoming connections*/
 
-    printf("ready and listening\n");
+    printf("ready and listening ...\n\n");
 
     //Wait for connection
     while (true) {

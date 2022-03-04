@@ -49,12 +49,12 @@ cfgServer initCfgSrv()
  
   return cfgServer;
 }
-
+  
 /**
 * @brief Affichage de la config du serveur
 * @param cfg strcture config serveur
 */
 void afficherConfigSrv(cfgServer cfg)
 {
-    printf("\n--- Config du serveur : ---\nIP du serveur : %s \nPort du serveur : %d\n\nNom de la partie : %s\nBank de depart : %d\nId client 1 : %d\nId client 2 : %d\n\n", cfg.server_IP, cfg.server_Port, cfg.room_name, cfg.room_start_balance, cfg.room_client_1, cfg.room_client_2);
-}
+    printf("\n--- Config du serveur : ---\nIP du serveur \t: %s \nPort du serveur : %d\nNom de partie \t: %s\nBank de depart \t: %d\nId client 1 \t: %d\nId client 2 \t: %d\n\n", cfg.server_IP, cfg.server_Port, cfg.room_name, cfg.room_start_balance, cfg.room_client_1, cfg.room_client_2);
+} 

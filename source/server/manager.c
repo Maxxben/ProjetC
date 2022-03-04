@@ -68,7 +68,7 @@ void *threadProcess(void *ptr) {
 
     if (!ptr) pthread_exit(0);
     connection = (connection_t *) ptr;
-    printf("New incoming connection \n");
+    printf("*New incoming connection* \n\n");
     add(connection);
     while((len = read(connection->sockfd, &cfgCli, sizeof(cfgClient))) > 0){
 
@@ -86,7 +86,7 @@ void *threadProcess(void *ptr) {
         break;
     }
 
-    printf("Connection to client %i ended \n", connection->index);
+    printf("\nConnection to client %i ended \n", connection->index);
     close(connection->sockfd);
     del(connection);
     free(connection);
