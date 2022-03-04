@@ -25,9 +25,9 @@ cfgServer initCfgSrv()
     config_destroy(&cfg);
   }
  
-  const char *server_IP;
+  char *server_IP;
   int server_Port = 0;
-  const char *room_name;
+  char *room_name;
   int room_start_balance = 0;
   int room_client_1 = 0;
   int room_client_2 = 0;
