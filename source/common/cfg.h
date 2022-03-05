@@ -47,6 +47,16 @@ typedef struct {
     int Score;
 } jeuClient;
 
+/**
+* @brief Structure : informations de données de résultat d'un round
+*
+* @param Budget     Unités (utilisées lors de la mise) restantes; Défini en début de partie par le Serveur
+* @param Mise       Montant d'unités misées ; Décidée par le joueur à chaque round ; Influe le nombre de point gagné lors d'un round selon la décision
+* @param Décision   Choix du joueur (Trahir/Collaborer) ; Décidée par le joueur à chaque round ; Décide de la victoire, de la défaite ou d'une égalité lors d'un round
+* @param Score      Somme cumulative des points remportés à chaque round ; Critère de victoire de la partie (à la fin du dernier round)
+*/
+
+
 
 cfgClient initCfgCli();
 cfgServer initCfgSrv();
