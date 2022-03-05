@@ -1,3 +1,9 @@
+/*
+* File : game.c
+* Author: Thomas
+*
+*/
+
 #include <string.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -64,3 +70,32 @@
     return R;
 }
 
+/**
+ * @brief Extraction des données de résultat (Mises, Décisions, Score et Budget)
+ * @param[in] Result_Round R :      Structure de données de résultat, composée de deux 
+ *                                  instances de structure de données de jeu de clients 
+ *                                  (Budget, mise, décision et score)
+ * @param[out] jeuClient Rescli :   Structure de données de résultat de jeu du Client1
+ */
+
+jeuClient ExtractResultStruct1(Result_Round r) {
+    jeuClient ResCli;
+
+    ResCli = r.rc1;
+    return ResCli;
+}
+
+/**
+ * @brief Extraction des données de résultat (Mises, Décisions, Score et Budget)
+ * @param[in] Result_Round R :      Structure de données de résultat, composée de deux 
+ *                                  instances de structure de données de jeu de clients 
+ *                                  (Budget, mise, décision et score)
+ * @param[out] jeuClient Rescli :   Structure de données de résultat de jeu du Client2
+ */
+
+jeuClient ExtractResultStruct2(Result_Round r) {
+    jeuClient ResCli;
+
+    ResCli = r.rc2;
+    return ResCli;
+}
