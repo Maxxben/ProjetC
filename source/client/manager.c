@@ -18,7 +18,7 @@
 
 void *threadProcess(void * ptr) {
     int sockfd = *((int *) ptr);
-
+    
     
     
     close(sockfd);
