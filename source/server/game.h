@@ -17,3 +17,4 @@ typedef struct  {
  Result_Round RoundProcess(jeuClient, jeuClient);
  jeuClient ExtractResultStruct1(Result_Round);
  jeuClient ExtractResultStruct2(Result_Round);
+// int GameProcess(jeuClient, jeuClient);
