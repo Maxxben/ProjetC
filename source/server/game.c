@@ -6,7 +6,6 @@
 
 #include <string.h>
 #include <stdio.h>
-#include <stdbool.h>
 #include "game.h"
 
 /**
@@ -108,4 +107,45 @@ jeuClient ExtractResultStruct2(Result_Round r)
 
     ResCli = r.rc2;
     return ResCli;
+}
+
+/**
+ * @brief                                   Initialisation de la config de la partie
+ * @param[out] Result_Round InitResult :    Structure de données de résultat, composée de deux 
+ *                                          instances de structure de données de jeu de clients 
+ *                                          (RoudRestant, Budget, Mises, Décisions et Score)
+ */
+
+Result_Round InitGame()
+{
+    config_t cfg;
+    config_init(&cfg);
+
+
+    int initRoundRestant = 0;
+    int initBudget = 0;
+    int initMise = 0;
+    int initDecision = 0;
+    int initScore = 0;
+
+    config_lookup_string(&cfg, "initRoundRestant", &initRoundRestant);
+    config_lookup_string(&cfg, "initBudget", &initBudget);
+    config_lookup_string(&cfg, "initMise", initMise);
+    config_lookup_string(&cfg, "initDecision", initDecision);
+    config_lookup_string(&cfg, "initScore", initScore);
+
+    Result_Round InitResult;
+    InitResult.rc1.RoundRestant = initRoundRestant;
+    InitResult.rc2.RoundRestant = initRoundRestant;
+    InitResult.rc1.Budget = initBudget;
+    InitResult.rc2.Budget = initBudget;
+    InitResult.rc1.Mise = initMise;
+    InitResult.rc2.Mise = initMise;
+    InitResult.rc1.Décision = initDecision;
+    InitResult.rc2.Décision = initDecision;
+    InitResult.rc1.Score = initScore;
+    InitResult.rc2.Score = initScore;
+
+    return InitResult;
+
 }
