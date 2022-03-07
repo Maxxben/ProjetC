@@ -32,7 +32,11 @@ void RefreshInterface(jeuClient c) {
 
 jeuClient BuildStruct(jeuClient sendc, int gladeMise, int gladeDecision) {
     sendc.Décision = gladeDecision;
-    sendc.Mise = gladeMise;
+    if (sendc.Mise <= sendc.Budget)
+    {
+        sendc.Mise = gladeMise;
+    }
+    
 
     return sendc;
 }
