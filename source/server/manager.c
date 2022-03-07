@@ -48,7 +48,7 @@ void del(connection_t *connection) {
 }
 
 /**
- * @brief Hydratation de la variable globale du fichier
+ * @brief Remplissage de la variable globale du fichier
  * @param cfg configuration hydratée venant du main
  */
 void setCfgServer(cfgServer cfg){
@@ -68,6 +68,8 @@ void *threadProcess(void *ptr) {
 
     if (!ptr) pthread_exit(0);
     connection = (connection_t *) ptr;
+    
+    printf("--------------------------------\n");
     printf("*New incoming connection* \n\n");
     add(connection);
     while((len = read(connection->sockfd, &cfgCli, sizeof(cfgClient))) > 0){
@@ -82,9 +84,14 @@ void *threadProcess(void *ptr) {
         {
             printf("Le client %d est n'appartient pas a la room\n", cfgCli.id_Client);
         }
+        printf("--------------------------------\n");
 
         break;
     }
+
+    deroulementDuJeu();
+
+    ecritureDesResultats();
 
     printf("\nConnection to client %i ended \n", connection->index);
     close(connection->sockfd);
