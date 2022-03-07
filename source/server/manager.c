@@ -48,7 +48,7 @@ void del(connection_t *connection) {
 }
 
 /**
- * @brief Hydratation de la variable globale du fichier
+ * @brief Remplissage de la variable globale du fichier
  * @param cfg configuration hydratée venant du main
  */
 void setCfgServer(cfgServer cfg){
@@ -90,7 +90,7 @@ void *threadProcess(void *ptr) {
     }
 
     deroulementDuJeu();
-    
+
     ecritureDesResultats();
 
     printf("\nConnection to client %i ended \n", connection->index);
