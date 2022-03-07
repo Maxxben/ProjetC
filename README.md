@@ -25,7 +25,6 @@ Pour que l'application fonctionne correctement, nous avons besoin de plusieurs l
         sudo apt install build-essential
     
 - Libconfig :
-  - !!!!
   
         sudo apt install libconfig-devel
 
@@ -42,15 +41,13 @@ Pour que l'application fonctionne correctement, nous avons besoin de plusieurs l
 Installation de Doxygen apt install doxygen / dnf install doxygen
 Génération de la documentation make documentation
   
-  - !!!!
-  
         sudo apt install doxygen
         
   - Fedora :
 
         sudo yum install doxygen
      
-- Ubuntu :
+  - Ubuntu :
 
       sudo apt install doxygen
 
