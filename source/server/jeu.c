@@ -18,7 +18,7 @@ void printEnTete(FILE *file){
 }
 
 void printLine(FILE *file,Resultat res){
-    fprintf(file,"%d, %s, %s, %d, %d, %d, %d\n", res.numeroRound, res.JeuJ1, res.JeuJ2, res.MiseDeJ1, res.MiseDeJ2, res.Score1, res.Score2);
+    fprintf(file,"%d; %s; %s; %d; %d; %d; %d\n", res.numeroRound, res.JeuJ1, res.JeuJ2, res.MiseDeJ1, res.MiseDeJ2, res.Score1, res.Score2);
 }
 
 void ecritureDesResultats(){
@@ -36,13 +36,14 @@ void ecritureDesResultats(){
     resultat.Score2 = 700;
 
     FILE *fpt;
-    fpt = fopen("GestionDesParties.csv", "a");
+    fpt = fopen("GestionDesParties.csv", "a+");
     
     printEnTete(fpt);
     printLine(fpt,resultat);
     printLine(fpt,resultat);
     printLine(fpt,resultat);
     fprintf(fpt,"       \n");
+    fclose(fpt);
 
     printf("\n\t*Fin ecriture - fichier créer : GestionDesParties.csv*\n");
 
