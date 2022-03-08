@@ -53,7 +53,7 @@ void deroulementDuJeu(){
 
     printf("\nPartie en cours ...\n");
 
-    //TODO : Deroulement de la partie
+    //TODO : Boucle deroulement d'un ou plusieurs round(s)
 
     printf("\nPartie en terminée ...\n");
 }
